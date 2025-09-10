@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+
+/* Theme variables (keeps same color palette and soft-neumorphic style) */
+:root {
+  --bg: #f2f2f2;
+  --text: #1a1a1a;
+  --muted: #555555;
+  --primary: #101010;
+
+  --danger: #e74c3c;
+  --warn: #f39c12;
+  --mid: #ffcd45;
+  --ok: #27ae60;
+  --good: #2ecc71;
+
+  --radius-lg: 30px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+  --pad: 18px;
+  --gap: 12px;
+  --gap-lg: 18px;
+
+  /* Neumorphic shadows */
+  --sh-out: 0px -6px 10px rgba(255, 255, 255, 1), 0px 4px 15px rgba(0, 0, 0, 0.15);
+  --sh-in: inset 5px 6px 10px rgba(255, 255, 255, 0.6), inset -5px 4px 10px rgba(0, 0, 0, 0.12);
+
+  /* New accents for edit states */
+  --accent-edit: var(--mid);       /* Edit-ready (after copy) */
+  --accent-editing: var(--ok);     /* While editing (Done) */
+
+  /* Extended palette for richer text/badge/button variants */
+  --info: #2f81f7;       /* blue */
+  --indigo: #6655dd;
+  --purple: #8a63d2;
+  --pink: #d354a7;
+  --teal: #14b8a6;
+  --cyan: #06b6d4;
+  --orange: #ff8a3d;
+
+  /* Soft backgrounds for badges/chips (on light bg) */
+  --soft-info: rgba(47,129,247,0.12);
+  --soft-indigo: rgba(102,85,221,0.12);
+  --soft-purple: rgba(138,99,210,0.12);
+  --soft-pink: rgba(211,84,167,0.12);
+  --soft-teal: rgba(20,184,166,0.12);
+  --soft-cyan: rgba(6,182,212,0.12);
+  --soft-orange: rgba(255,138,61,0.12);
+  --soft-warn: rgba(243,156,18,0.12);
+  --soft-danger: rgba(231,76,60,0.12);
+  --soft-ok: rgba(39,174,96,0.12);
+}
+
+/* Base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Walter Turncoat', cursive;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text selection and links for a bit more color */
+::selection {
+  background: rgba(47,129,247,0.25); /* info */
+  color: var(--text);
+}
+::-moz-selection {
+  background: rgba(47,129,247,0.25);
+  color: var(--text);
+}
+
+a {
+  color: var(--info);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(47,129,247,0.25);
+}
+a:hover { border-bottom-color: rgba(47,129,247,0.45); }
+
+/* Optional: accent title if you add class="title title-accent" */
+.title-accent {
+  background: linear-gradient(90deg, var(--info), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.title {
+  font-size: 32px;
+  margin: 0 0 16px 0;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+/* Card wrapper (neumorphic) */
+.card {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--sh-out);
+  padding: var(--pad);
+}
+
+/* Password row */
+.password-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: var(--gap);
+  align-items: center;
+}
+
+/* Inputs */
+.password-input,
+input[type="number"],
+input[type="text"],
+input[type="password"] {
+  font-family: 'Walter Turncoat', cursive;
+  background: var(--bg);
+  height: 50px;
+  padding: 0 14px;
+  text-align: left;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  color: var(--text);
+  box-shadow: var(--sh-out);
+  outline: none;
+  transition: box-shadow 0.2s ease, transform 0.05s ease, background-color 0.2s ease;
+  caret-color: var(--primary);
+}
+
+.password-input {
+  letter-spacing: 0.6px;
+}
+
+/* While editable (set by JS: readOnly=false) give a clear but soft edit affordance */
+.password-input:not([readonly]) {
+  box-shadow: var(--sh-in), 0 0 0 3px rgba(39, 174, 96, 0.15) inset;
+  caret-color: var(--accent-editing);
+  background-color: rgba(20,20,20,0.02);
+}
+
+.password-input:focus,
+input[type="number"]:focus {
+  box-shadow: var(--sh-in);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 45px;
+  min-width: 120px;
+  padding: 0 16px;
+  background: var(--bg);
+  color: var(--text);
+  border: none;
+  border-radius: 50px;
+  box-shadow: var(--sh-out);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.05s ease, filter 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  filter: brightness(0.98);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--sh-in);
+}
+
+.btn:focus-visible {
+  outline: 2px dashed var(--primary);
+  outline-offset: 2px;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  /* Keep same color; emphasize with inner shadows on active */
+  font-weight: 700;
+}
+
+/* Button color variants (neumorphic ghost style) */
+.btn-info { color: var(--info); }
+.btn-success { color: var(--ok); }
+.btn-warning { color: var(--warn); }
+.btn-danger { color: var(--danger); }
+.btn-purple { color: var(--purple); }
+.btn-teal { color: var(--teal); }
+.btn-cyan { color: var(--cyan); }
+.btn-orange { color: var(--orange); }
+
+.btn-info:active,
+.btn-success:active,
+.btn-warning:active,
+.btn-danger:active,
+.btn-purple:active,
+.btn-teal:active,
+.btn-cyan:active,
+.btn-orange:active {
+  box-shadow: var(--sh-in), 0 0 0 2px rgba(0,0,0,0.03) inset;
+}
+
+/* Toggle button special states driven by aria-label set in JS
+   - aria-label starts with 'Edit'     -> edit-ready (after copy)
+   - aria-label starts with 'Finish'   -> editing (button shows Done) */
+
+#btn-toggle { position: relative; }
+
+/* Subtle attention pulse when the button first turns to Edit (3 times) */
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: var(--sh-out); }
+  50% { box-shadow: var(--sh-out), 0 0 0 10px rgba(255, 205, 69, 0.10); }
+}
+
+/* Edit-ready styling */
+#btn-toggle[aria-label^="Edit"] {
+  color: var(--accent-edit);
+  animation: pulse-soft 1.4s ease-in-out 0s 3;
+}
+#btn-toggle[aria-label^="Edit"]::before {
+  content: '✎';
+  display: inline-block;
+  margin-right: 8px;
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+/* Editing/Done styling */
+#btn-toggle[aria-label^="Finish"] {
+  color: var(--accent-editing);
+  box-shadow: var(--sh-in);
+}
+#btn-toggle[aria-label^="Finish"]::before {
+  content: '✔';
+  display: inline-block;
+  margin-right: 8px;
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+/* Controls layout */
+.controls {
+  margin-top: var(--gap-lg);
+  display: grid;
+  gap: var(--gap);
+}
+
+.control-row {
+  display: grid;
+  gap: 10px;
+}
+
+.control-label {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Subtle colorful hints for legends/labels if you add .label-accent-* */
+.label-accent-info { color: var(--info); }
+.label-accent-success { color: var(--ok); }
+.label-accent-warning { color: var(--warn); }
+.label-accent-danger { color: var(--danger); }
+.label-accent-purple { color: var(--purple); }
+
+/* Length controls */
+.length-controls {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: var(--gap);
+  align-items: center;
+}
+
+/* Number input */
+input[type="number"] {
+  width: 100%;
+  text-align: center;
+}
+
+/* Range slider (neumorphic) */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 18px;
+  background: var(--bg);
+  border-radius: 999px;
+  box-shadow: var(--sh-in);
+  outline: none;
+  margin: 8px 0;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 18px;
+  background: transparent;
+  border-radius: 999px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px; /* centers thumb */
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border-radius: 50%;
+  box-shadow: var(--sh-out);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 18px;
+  background: transparent;
+  border-radius: 999px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  background: var(--bg);
+  border-radius: 50%;
+  border: none;
+  box-shadow: var(--sh-out);
+  cursor: pointer;
+}
+
+/* Checkboxes */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 16px;
+  color: var(--muted);
+  user-select: none;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: var(--primary);
+  /* Neumorphic box around checkbox */
+  appearance: none;
+  background: var(--bg);
+  border-radius: 6px;
+  box-shadow: var(--sh-out);
+  position: relative;
+}
+
+.checkbox input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.15s ease, box-shadow 0.2s ease;
+}
+
+.checkbox input[type="checkbox"]:checked {
+  box-shadow: var(--sh-in);
+}
+.checkbox input[type="checkbox"]:checked::after {
+  background: var(--primary);
+}
+
+/* Strength meter */
+.strength {
+  display: grid;
+  gap: 8px;
+}
+
+.strength-labels {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.strength-text {
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* Optional color mapping for strength text if you add classes s0..s4 via JS */
+.strength-text.s0 { color: var(--danger); }
+.strength-text.s1 { color: var(--warn); }
+.strength-text.s2 { color: var(--mid); }
+.strength-text.s3 { color: var(--ok); }
+.strength-text.s4 { color: var(--good); }
+
+.entropy {
+  color: var(--muted);
+}
+
+.meter {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: var(--sh-in);
+  overflow: hidden;
+}
+
+.bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  transition: width 200ms ease, background 200ms ease;
+  background: var(--danger);
+}
+.bar.s1 { background: var(--warn); }
+.bar.s2 { background: var(--mid); }
+.bar.s3 { background: var(--ok); }
+.bar.s4 { background: var(--good); }
+
+/* Toast and messages */
+.toast {
+  position: relative;
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ok);
+  box-shadow: var(--sh-out);
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Toast variants (use .toast.ok/.warn/.error) */
+.toast.ok { color: var(--ok); background: var(--soft-ok); }
+.toast.warn { color: var(--warn); background: var(--soft-warn); }
+.toast.error { color: var(--danger); background: var(--soft-danger); }
+
+.message {
+  margin-top: 6px;
+  min-height: 20px;
+  font-size: 15px;
+  color: var(--warn);
+}
+
+/* Message variants (optional class-based instead of inline styles) */
+.message.ok { color: var(--ok); }
+.message.warn { color: var(--warn); }
+.message.error { color: var(--danger); }
+
+/* Helper text */
+.hint {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Simple colorful badges/chips you can use for labels */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--text);
+  background: rgba(0,0,0,0.06);
+  box-shadow: var(--sh-out);
+}
+.badge .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: currentColor;
+}
+
+/* Soft colored variants for badges */
+.badge-info { color: var(--info); background: var(--soft-info); }
+.badge-indigo { color: var(--indigo); background: var(--soft-indigo); }
+.badge-purple { color: var(--purple); background: var(--soft-purple); }
+.badge-pink { color: var(--pink); background: var(--soft-pink); }
+.badge-teal { color: var(--teal); background: var(--soft-teal); }
+.badge-cyan { color: var(--cyan); background: var(--soft-cyan); }
+.badge-orange { color: var(--orange); background: var(--soft-orange); }
+.badge-ok { color: var(--ok); background: var(--soft-ok); }
+.badge-warn { color: var(--warn); background: var(--soft-warn); }
+.badge-danger { color: var(--danger); background: var(--soft-danger); }
+
+/* Text color utilities */
+.text-muted { color: var(--muted) !important; }
+.text-primary { color: var(--primary) !important; }
+.text-info { color: var(--info) !important; }
+.text-indigo { color: var(--indigo) !important; }
+.text-purple { color: var(--purple) !important; }
+.text-pink { color: var(--pink) !important; }
+.text-teal { color: var(--teal) !important; }
+.text-cyan { color: var(--cyan) !important; }
+.text-orange { color: var(--orange) !important; }
+.text-success { color: var(--ok) !important; }
+.text-warning { color: var(--warn) !important; }
+.text-danger { color: var(--danger) !important; }
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .password-row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .password-input {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Legacy classes from your original CSS (kept to avoid breaking older markup) */
+.form {
+  background: var(--bg);
+  box-shadow: var(--sh-out);
+  border-radius: var(--radius-lg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  margin-top: 30px;
+  background: var(--bg);
+  box-shadow: var(--sh-out);
+  border: none;
+  width: 130px;
+  height: 45px;
+  color: var(--text);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+#button:hover { filter: brightness(0.98); }
+#button:active { box-shadow: var(--sh-in); }
+
+.copy {
+  margin-left: 85px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">Password Generator</h1>
+
+    <section class="card">
+      <div class="password-row">
+        <label for="password" class="sr-only">Generated password</label>
+        <input id="password" class="password-input" type="text" readonly value="" aria-describedby="message" />
+        <button id="btn-generate" class="btn btn-primary" type="button" aria-label="Generate password">Generate</button>
+        <button id="btn-copy" class="btn" type="button" aria-label="Copy password to clipboard">Copy</button>
+        <button id="btn-toggle" class="btn" type="button" aria-label="Show or hide password">Show</button>
+      </div>
+
+      <div id="copy-toast" class="toast" role="status" aria-live="polite" hidden>Copied!</div>
+      <div id="message" class="message" aria-live="polite"></div>
+
+      <div class="controls">
+        <div class="control-row">
+          <label for="length" class="control-label">Length: <strong id="length-value">16</strong></label>
+          <div class="length-controls">
+            <input id="length" type="range" min="6" max="64" value="16" />
+            <input id="length-number" type="number" min="6" max="64" value="16" />
+          </div>
+        </div>
+
+        <fieldset class="control-row">
+          <legend class="control-label">Character types</legend>
+          <label class="checkbox">
+            <input id="opt-lower" type="checkbox" checked />
+            Lowercase (a–z)
+          </label>
+          <label class="checkbox">
+            <input id="opt-upper" type="checkbox" checked />
+            Uppercase (A–Z)
+          </label>
+          <label class="checkbox">
+            <input id="opt-number" type="checkbox" checked />
+            Numbers (0–9)
+          </label>
+          <label class="checkbox">
+            <input id="opt-symbol" type="checkbox" checked />
+            Symbols (!@#$…)
+          </label>
+          <label class="checkbox">
+            <input id="opt-ambiguous" type="checkbox" />
+            Avoid ambiguous (O0, l1, |, etc.)
+          </label>
+          <label class="checkbox">
+            <input id="opt-no-duplicates" type="checkbox" />
+            No repeated characters
+          </label>
+        </fieldset>
+
+        <div class="control-row strength">
+          <div class="strength-labels">
+            <span class="control-label">Strength</span>
+            <span id="strength-text" class="strength-text">—</span>
+            <span id="entropy" class="entropy" title="Estimated entropy in bits">0 bits</span>
+          </div>
+          <div class="meter" aria-label="Password strength">
+            <span id="strength-bar" class="bar"></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="hint">Tip: Press Enter to generate a new password.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
