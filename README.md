@@ -12,7 +12,8 @@ A fast, accessible, and secure password generator with a modern UI, strength met
 - Demo-ready static site: just open index.html
 - Crypto‑safe randomness using `window.crypto.getRandomValues`
 - Keyboard-friendly and screen‑reader friendly
-
+-preview
+![image](https://github.com/MdSaifAli063/Password-Generator/blob/7a5084130d302a322229c21b377db089d2b054b6/Screenshot%202025-09-11%20010252.png)
 ---
 
 ## 📁 Project Structure
