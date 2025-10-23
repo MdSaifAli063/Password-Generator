@@ -119,17 +119,19 @@ Example (change primary accent):
 }
 ```
 
-⚙️ Configuration (script.js)
+## ⚙️ Configuration (script.js)
 
-Default ranges:
-Length slider: min=6, max=64 (change in HTML if needed)
+- Default ranges:
+- Length slider: min=6, max=64 (change in HTML if needed)
 Character sets (edit with care):
+```js
 const CHARSETS = {
   lower: 'abcdefghijklmnopqrstuvwxyz',
   upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   number: '0123456789',
   symbol: '!@#$%^&*()_+-=[]{}|;:,.<>?/~`',
 };
+```
 
 Ambiguous characters filter:
 const AMBIGUOUS = new Set(['O','0','o','I','l','1','|','S','5','B','8','G','6','Z','2']);
