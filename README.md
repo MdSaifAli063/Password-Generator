@@ -161,10 +161,10 @@ Visual:
 - Strength looks “low”
 - Reduce symbols/filters or increase length to raise entropy.
 
-🌐 Deploy
+## 🌐 Deploy
 
-GitHub Pages: push to a repo and enable Pages on the main branch (root).
-Netlify/Vercel: drag‑and‑drop or import the repo as a static site.
+- GitHub Pages: push to a repo and enable Pages on the main branch (root).
+- Netlify/Vercel: drag‑and‑drop or import the repo as a static site.
 
 🤝 Contributing
 
