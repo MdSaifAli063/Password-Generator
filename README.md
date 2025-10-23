@@ -151,15 +151,15 @@ Labels:
 Visual:
 - High-contrast text and clear status color coding
 
-🛠️ Troubleshooting
+## 🛠️ Troubleshooting
 
-Clipboard not copying?
-Serve the page over http(s) for the modern Clipboard API.
-The app falls back to a legacy execCommand('copy') when allowed by the browser.
-“No repeated characters” warning
-If your selected character pool is smaller than the desired length, repeats are allowed and a warning is shown.
-Strength looks “low”
-Reduce symbols/filters or increase length to raise entropy.
+- Clipboard not copying?
+- Serve the page over http(s) for the modern Clipboard API.
+- The app falls back to a legacy execCommand('copy') when allowed by the browser.
+- “No repeated characters” warning
+- If your selected character pool is smaller than the desired length, repeats are allowed and a warning is shown.
+- Strength looks “low”
+- Reduce symbols/filters or increase length to raise entropy.
 
 🌐 Deploy
 
