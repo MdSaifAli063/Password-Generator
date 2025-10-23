@@ -179,9 +179,9 @@ Visual:
 
 MIT License. You’re free to use, modify, and distribute with attribution. See LICENSE if present.
 
-❤️ Credits
+## ❤️ Credits
 
-UI/UX: soft‑neumorphic style with accessible contrast
-Security: crypto‑safe RNG via Web Crypto API
-You, for using and improving this tool!
+- UI/UX: soft‑neumorphic style with accessible contrast
+- Security: crypto‑safe RNG via Web Crypto API
+- You, for using and improving this tool!
 Made in India !
