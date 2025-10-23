@@ -166,14 +166,14 @@ Visual:
 - GitHub Pages: push to a repo and enable Pages on the main branch (root).
 - Netlify/Vercel: drag‑and‑drop or import the repo as a static site.
 
-🤝 Contributing
+## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
-Feel free to open an issue or a PR.
+- Contributions, issues, and feature requests are welcome!
+- Feel free to open an issue or a PR.
 
-Code style: keep code readable, comment nontrivial logic
-Accessibility: don’t regress keyboard or screen‑reader support
-Security: maintain crypto‑safe randomness and avoid bias
+- Code style: keep code readable, comment nontrivial logic
+- Accessibility: don’t regress keyboard or screen‑reader support
+- Security: maintain crypto‑safe randomness and avoid bias
 
 📜 License
 
