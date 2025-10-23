@@ -117,7 +117,7 @@ Example (change primary accent):
 :root {
   --primary: #0f172a; /* deeper accent */
 }
-
+```
 
 ⚙️ Configuration (script.js)
 
