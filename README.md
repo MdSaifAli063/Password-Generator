@@ -140,16 +140,16 @@ const AMBIGUOUS = new Set(['O','0','o','I','l','1','|','S','5','B','8','G','6','
 - Settings persist under localStorage key: pwgen-settings.v1.
 - Security note: Randomness uses crypto.getRandomValues with a modulo‑bias‑free sampler and Fisher–Yates shuffle.
 
-🧩 Accessibility
+## 🧩 Accessibility
 
 Labels:
-Screen-reader label for the password field (sr-only)
-Live regions for messages and the “Copied!” toast
-Keyboard:
-Tabbable controls with visible focus states
-Enter to generate
+- Screen-reader label for the password field (sr-only)
+- Live regions for messages and the “Copied!” toast
+- Keyboard:
+- Tabbable controls with visible focus states
+- Enter to generate
 Visual:
-High-contrast text and clear status color coding
+- High-contrast text and clear status color coding
 
 🛠️ Troubleshooting
 
