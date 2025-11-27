@@ -21,7 +21,12 @@ A fast, accessible, and secure password generator with a modern UI, strength met
 
 ## 📁 Project Structure
 
-. ├── index.html # Markup and UI controls ├── style.css # Neumorphic theme, colors, responsive styles └── script.js # Generator logic, strength meter, copy & edit flow
+. ├── index.html
+# Markup and UI controls 
+├── style.css 
+# Neumorphic theme, colors, responsive styles 
+└── script.js 
+# Generator logic, strength meter, copy & edit flow
 
 ---
 
