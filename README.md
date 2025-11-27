@@ -179,7 +179,6 @@ Visual:
 
 - Contributions, issues, and feature requests are welcome!
 - Feel free to open an issue or a PR.
-
 - Code style: keep code readable, comment nontrivial logic
 - Accessibility: don’t regress keyboard or screen‑reader support
 - Security: maintain crypto‑safe randomness and avoid bias
