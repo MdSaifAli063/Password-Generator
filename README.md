@@ -21,13 +21,14 @@ A fast, accessible, and secure password generator with a modern UI, strength met
 
 ## 📁 Project Structure
 
+```pqsql
 . ├── index.html
 # Markup and UI controls 
 ├── style.css 
 # Neumorphic theme, colors, responsive styles 
 └── script.js 
 # Generator logic, strength meter, copy & edit flow
-
+```
 ---
 
 ## ✨ Features
