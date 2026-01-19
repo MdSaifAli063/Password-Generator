@@ -179,6 +179,7 @@ Visual:
 - GitHub Pages: push to a repo and enable Pages on the main branch (root).
 - Netlify/Vercel: drag‑and‑drop or import the repo as a static site.
 
+
 ## 🤝 Contributing
 
 - Contributions, issues, and feature requests are welcome!
