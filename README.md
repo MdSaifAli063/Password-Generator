@@ -193,6 +193,7 @@ Visual:
 
 MIT License. You’re free to use, modify, and distribute with attribution. See LICENSE if present.
 
+
 ## ❤️ Credits
 
 - UI/UX: soft‑neumorphic style with accessible contrast
