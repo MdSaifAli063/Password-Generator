@@ -173,6 +173,7 @@ Visual:
 - Strength looks “low”
 - Reduce symbols/filters or increase length to raise entropy.
 
+
 ## 🌐 Deploy
 
 - GitHub Pages: push to a repo and enable Pages on the main branch (root).
