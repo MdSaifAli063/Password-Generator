@@ -162,6 +162,7 @@ Labels:
 Visual:
 - High-contrast text and clear status color coding
 
+
 ## 🛠️ Troubleshooting
 
 - Clipboard not copying?
