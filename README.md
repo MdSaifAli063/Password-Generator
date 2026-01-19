@@ -150,6 +150,7 @@ const AMBIGUOUS = new Set(['O','0','o','I','l','1','|','S','5','B','8','G','6','
 - Settings persist under localStorage key: pwgen-settings.v1.
 - Security note: Randomness uses crypto.getRandomValues with a modulo‑bias‑free sampler and Fisher–Yates shuffle.
 
+
 ## 🧩 Accessibility
 
 Labels:
