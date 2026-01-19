@@ -188,6 +188,7 @@ Visual:
 - Accessibility: don’t regress keyboard or screen‑reader support
 - Security: maintain crypto‑safe randomness and avoid bias
 
+
 ## 📜 License
 
 MIT License. You’re free to use, modify, and distribute with attribution. See LICENSE if present.
